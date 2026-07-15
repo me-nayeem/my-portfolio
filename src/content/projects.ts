@@ -2,6 +2,34 @@ import type { Project } from "./types";
 
 export const projects: Project[] = [
   {
+    title: "Astha Engineering & Solutions",
+    slug: "astha-engineering",
+    summary:
+      "Production e-commerce platform for an industrial automation parts supplier — designed, built, and deployed end-to-end as sole developer.",
+    description:
+      "Astha Engineering & Solutions is a live e-commerce platform for an industrial automation parts supplier in Dhaka. The catalog serves 500+ products with fully bilingual content (English & Bangla), brand and category management, wishlists, and repair-job tracking — backed by an 11-table PostgreSQL schema modeled with Prisma. A REST API of 40+ endpoints handles JWT authentication with refresh-token rotation and role-based access control (Admin/Customer), with product imagery managed through Cloudinary. An admin dashboard lets non-technical staff run daily operations — products, categories, and repair jobs with WhatsApp-integrated inquiries — without touching code.",
+    problem:
+      "The client sold 500+ industrial parts entirely offline: no searchable catalog for customers, no way to track repair jobs, and every product update depended on someone technical. Content also had to work in both English and Bangla for their customer base.",
+    solution:
+      "A complete platform delivered end-to-end: an 11-table PostgreSQL schema designed for bilingual content and catalog relations, a 40+ endpoint REST API secured with JWT refresh-token rotation and role-based access, and an admin dashboard that hands daily operations — products, categories, repair jobs, WhatsApp inquiries — to non-technical staff.",
+    whyBuilt:
+      "This was a real freelance engagement with a real deadline and real users — the project where I learned what production actually demands: decisions a client depends on, an admin UI staff can operate without me, and a system that keeps running after handover.",
+    techStack: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "Prisma",
+      "Tailwind CSS",
+      "Cloudinary",
+    ],
+    liveUrl: "https://asthaengineering.com",
+    coverImage: "/images/astha-home.png",
+    images: ["/images/astha-home.png"],
+    featured: true,
+    order: 1,
+  },
+  {
     title: "Halioo",
     slug: "halioo",
     summary:
@@ -26,9 +54,10 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/me-nayeem/HaliooChatBot",
     liveUrl: "https://halioo-chat-bot.vercel.app",
-    images: [],
+    coverImage: "/images/Main_halioo.png",
+    images: ["/images/halioo-chat.png"],
     featured: true,
-    order: 1,
+    order: 2,
   },
   {
     title: "QueueStorm",
@@ -45,10 +74,10 @@ export const projects: Project[] = [
       "I wanted to work out how to make LLMs dependable in a domain where consistency and safety matter more than fluency — determinism where it counts, AI only where it genuinely helps.",
     techStack: ["Node.js", "Express", "Google Gemini API", "Zod", "Docker"],
     githubUrl: "https://github.com/me-nayeem/Customer_Support_Chat_Bot",
-    liveUrl: "https://customers-support-chat-bot.onrender.com",
+    liveUrl: "https://customers-support-chat-bot.onrender.com/health",
     images: [],
     featured: true,
-    order: 2,
+    order: 3,
   },
   {
     title: "Office Energy Monitor",
@@ -76,9 +105,10 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/me-nayeem/Office_Device_Electricity_State",
     liveUrl: "https://mad-boss.vercel.app",
-    images: [],
+    coverImage: "/images/office_energy.png",
+    images: ["/images/office_energy.png"],
     featured: true,
-    order: 3,
+    order: 4,
   },
 ];
 
