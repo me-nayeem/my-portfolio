@@ -5,6 +5,8 @@ import {
   JetBrains_Mono,
   Instrument_Serif,
 } from "next/font/google";
+import { Navbar } from "../components/layout/navbar";
+import { Footer } from "../components/layout/footer";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -38,9 +40,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${manrope.variable} ${inter.variable} ${mono.variable} ${serif.variable}`}
+      className={`${manrope.variable} ${inter.variable} ${mono.variable} ${serif.variable} motion-safe:scroll-smooth`}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-dvh flex-col">
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
