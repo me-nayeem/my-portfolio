@@ -3,7 +3,7 @@ import type { Profile } from "./types";
 export const profile: Profile = {
   name: "Nayeem Islam",
   fullName: "MD. Nayeem Islam",
-  badge: "Full-Stack Developer · MERN",
+  badge: "Full-Stack Developer",
   email: "menayeemahmed100@gmail.com",
   phone: "+880 1879-333905",
   location: "Sylhet, Bangladesh",
@@ -14,6 +14,7 @@ export const profile: Profile = {
     "Next.js",
     "React",
     "TypeScript",
+    "C++",
     "Node.js",
     "Express",
     "PostgreSQL",
@@ -23,5 +24,6 @@ export const profile: Profile = {
     "Docker",
     "Git",
     "Vercel",
+    "Render",
   ],
 };
