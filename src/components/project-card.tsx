@@ -6,7 +6,12 @@ import type { Project } from "../content/types";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="group border-border bg-surface hover:border-primary/40 flex flex-col overflow-hidden rounded-2xl border transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(0,0,0,0.35)]">
+    <article className="group border-border bg-surface hover:border-primary/40 relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(0,0,0,0.35)]">
+      <Link
+        href={`/projects/${project.slug}`}
+        aria-label={`View ${project.title} details`}
+        className="absolute inset-0 z-1"
+      />
       <div className="bg-surface-2 relative aspect-2/1 overflow-hidden">
         {project.coverImage ? (
           <Image
@@ -29,7 +34,7 @@ export function ProjectCard({ project }: { project: Project }) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${project.title} on GitHub`}
-            className="border-border bg-surface/90 text-foreground hover:text-primary hover:border-primary/50 absolute top-3 right-3 flex size-9 items-center justify-center rounded-full border backdrop-blur-sm transition-colors"
+            className="border-border bg-surface/90 text-foreground hover:text-primary hover:border-primary/50 absolute top-3 right-3 z-10 flex size-9 items-center justify-center rounded-full border backdrop-blur-sm transition-colors"
           >
             <GithubIcon className="size-4.5" />
           </a>
@@ -59,7 +64,7 @@ export function ProjectCard({ project }: { project: Project }) {
           ))}
         </ul>
 
-        <div className="mt-4 flex gap-3">
+        <div className="relative z-10 mt-4 flex gap-3">
           <Link
             href={`/projects/${project.slug}`}
             className="text-primary-foreground rounded-full bg-(image:--gradient) px-4 py-1.5 text-xs font-semibold transition-transform duration-200 hover:-translate-y-0.5"

@@ -19,16 +19,16 @@ A fast, accessible, dark-themed portfolio built with **Next.js 16**, **TypeScrip
 
 ## Tech Stack
 
-| Layer      | Choice                        | Why                                                                 |
-| ---------- | ----------------------------- | ------------------------------------------------------------------- |
-| Framework  | Next.js 16 (App Router)       | Server Components, SSG via `generateStaticParams`, server actions    |
-| Language   | TypeScript (strict)           | `noUncheckedIndexedAccess` + `noImplicitOverride`; no `any` anywhere |
-| Styling    | Tailwind CSS v4               | CSS-first `@theme` tokens; design system as CSS variables            |
-| Components | shadcn/ui                     | Accessible primitives themed by the same token set                   |
-| Animation  | Motion (framer-motion)        | Transform/opacity-only animations, reduced-motion aware              |
-| Email      | Resend                        | Contact/feedback delivery from server actions, no database needed    |
-| Validation | Zod                           | Input validation at the server boundary                              |
-| Hosting    | Vercel                        | Static output at the edge, image optimization, preview deploys       |
+| Layer      | Choice                  | Why                                                                  |
+| ---------- | ----------------------- | -------------------------------------------------------------------- |
+| Framework  | Next.js 16 (App Router) | Server Components, SSG via `generateStaticParams`, server actions    |
+| Language   | TypeScript (strict)     | `noUncheckedIndexedAccess` + `noImplicitOverride`; no `any` anywhere |
+| Styling    | Tailwind CSS v4         | CSS-first `@theme` tokens; design system as CSS variables            |
+| Components | shadcn/ui               | Accessible primitives themed by the same token set                   |
+| Animation  | Motion (framer-motion)  | Transform/opacity-only animations, reduced-motion aware              |
+| Email      | Resend                  | Contact/feedback delivery from server actions, no database needed    |
+| Validation | Zod                     | Input validation at the server boundary                              |
+| Hosting    | Vercel                  | Static output at the edge, image optimization, preview deploys       |
 
 ## Architecture
 
@@ -109,13 +109,13 @@ Without the key the site runs fully — form submissions surface a graceful erro
 
 ### Scripts
 
-| Command          | Action                                  |
-| ---------------- | --------------------------------------- |
-| `npm run dev`    | Development server                      |
-| `npm run build`  | Production build (type-checks + SSG)    |
-| `npm run start`  | Serve the production build              |
-| `npm run lint`   | ESLint                                  |
-| `npm run format` | Prettier (with Tailwind class sorting)  |
+| Command          | Action                                 |
+| ---------------- | -------------------------------------- |
+| `npm run dev`    | Development server                     |
+| `npm run build`  | Production build (type-checks + SSG)   |
+| `npm run start`  | Serve the production build             |
+| `npm run lint`   | ESLint                                 |
+| `npm run format` | Prettier (with Tailwind class sorting) |
 
 ## Deployment
 
