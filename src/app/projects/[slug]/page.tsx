@@ -24,7 +24,7 @@ export async function generateMetadata({
     return {};
   }
   return {
-    title: `${project.title} — Nayeem Islam`,
+    title: project.title,
     description: project.summary,
     openGraph: {
       title: project.title,
