@@ -5,6 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { GithubIcon } from "../../../components/icons";
+import { FeedbackForm } from "../../../components/feedback-form";
 import { getProjectBySlug, projects } from "../../../content/projects";
 
 type Params = { slug: string };
@@ -196,33 +197,10 @@ export default async function ProjectPage({
 
       <CaseSection title="Feedback">
         <p className="text-sm">
-          No feedback yet — the feedback form opens soon.
+          Tried this project or read the case study? I&apos;d love to hear your
+          thoughts.
         </p>
-        <form className="mt-5">
-          <fieldset disabled className="grid gap-4 opacity-60">
-            <input
-              type="text"
-              placeholder="Your name"
-              aria-label="Your name"
-              className="border-border bg-surface-2 w-full rounded-lg border px-4 py-2.5 text-sm"
-            />
-            <textarea
-              placeholder="Share your thoughts on this project…"
-              aria-label="Your feedback"
-              rows={4}
-              className="border-border bg-surface-2 w-full rounded-lg border px-4 py-2.5 text-sm"
-            />
-            <button
-              type="submit"
-              className="text-primary-foreground w-fit rounded-full bg-(image:--gradient) px-6 py-2.5 text-sm font-semibold"
-            >
-              Submit Feedback
-            </button>
-          </fieldset>
-          <p className="text-muted-foreground mt-3 font-mono text-xs">
-            Feedback submissions are not open yet.
-          </p>
-        </form>
+        <FeedbackForm projectTitle={project.title} />
       </CaseSection>
     </article>
   );

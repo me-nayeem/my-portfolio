@@ -8,6 +8,7 @@ import {
 import { Navbar } from "../components/layout/navbar";
 import { Footer } from "../components/layout/footer";
 import { WhatsappButton } from "../components/whatsapp-button";
+import { Toaster } from "../components/ui/sonner";
 import { profile } from "../content/profile";
 import { siteDescription, siteUrl } from "../lib/site";
 import "./globals.css";
@@ -89,6 +90,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <WhatsappButton />
+        <Toaster theme="dark" position="bottom-right" richColors />
       </body>
     </html>
   );

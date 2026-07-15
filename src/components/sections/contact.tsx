@@ -1,7 +1,9 @@
 "use client";
 
-import type { FormEvent } from "react";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { useState, type FormEvent } from "react";
+import { Loader2, Mail, MapPin, Phone, Send } from "lucide-react";
+import { toast } from "sonner";
+import { sendContactMessage } from "../../app/actions/send-email";
 import { Reveal } from "../motion/reveal";
 import { SectionHeading } from "./section-heading";
 import { GithubIcon, LinkedinIcon } from "../icons";
@@ -25,18 +27,23 @@ const contactRows = [
   { icon: MapPin, label: "Location", value: profile.location },
 ];
 
-function handleSubmit(event: FormEvent<HTMLFormElement>) {
-  event.preventDefault();
-  const data = new FormData(event.currentTarget);
-  const name = String(data.get("name") ?? "");
-  const email = String(data.get("email") ?? "");
-  const message = String(data.get("message") ?? "");
-  const subject = encodeURIComponent(`Portfolio contact from ${name}`);
-  const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
-  window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
-}
-
 export function ContactSection() {
+  const [sending, setSending] = useState(false);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    setSending(true);
+    const result = await sendContactMessage(new FormData(form));
+    setSending(false);
+    if (result.ok) {
+      toast.success("Message sent — I'll get back to you soon!");
+      form.reset();
+    } else {
+      toast.error(result.error ?? "Something went wrong. Please try again.");
+    }
+  }
+
   return (
     <section id="contact" className="scroll-mt-24">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
@@ -115,6 +122,14 @@ export function ContactSection() {
               onSubmit={handleSubmit}
               className="border-border bg-surface rounded-2xl border p-6 sm:p-8"
             >
+              <input
+                type="text"
+                name="company"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="hidden"
+              />
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="space-y-2">
                   <label htmlFor="contact-name" className="text-sm font-medium">
@@ -165,10 +180,15 @@ export function ContactSection() {
               </div>
               <button
                 type="submit"
-                className="text-primary-foreground mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-(image:--gradient) px-7 py-3 text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(52,211,153,0.28)] sm:w-auto"
+                disabled={sending}
+                className="text-primary-foreground mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-(image:--gradient) px-7 py-3 text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(52,211,153,0.28)] disabled:pointer-events-none disabled:opacity-60 sm:w-auto"
               >
-                <Send className="size-4" aria-hidden="true" />
-                Send Message
+                {sending ? (
+                  <Loader2 className="size-4 animate-spin" aria-hidden="true" />
+                ) : (
+                  <Send className="size-4" aria-hidden="true" />
+                )}
+                {sending ? "Sending…" : "Send Message"}
               </button>
             </form>
           </Reveal>
