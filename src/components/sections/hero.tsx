@@ -17,10 +17,17 @@ const rise: Variants = {
   },
 };
 
-const photoIn: Variants = {
-  hidden: { opacity: 0, scale: 0.96 },
+const riseNoFade: Variants = {
+  hidden: { y: 24 },
   visible: {
-    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: [0.22, 0.8, 0.35, 1] },
+  },
+};
+
+const photoIn: Variants = {
+  hidden: { scale: 0.96 },
+  visible: {
     scale: 1,
     transition: { duration: 0.6, delay: 0.12, ease: [0.22, 0.8, 0.35, 1] },
   },
@@ -59,7 +66,7 @@ export function Hero() {
           </motion.div>
 
           <motion.h1
-            variants={rise}
+            variants={riseNoFade}
             className="font-heading mb-5 text-[clamp(1.6rem,3.3vw,2.5rem)] leading-[1.12] font-extrabold tracking-[-0.03em]"
           >
             Building{" "}
@@ -74,7 +81,7 @@ export function Hero() {
           </motion.h1>
 
           <motion.p
-            variants={rise}
+            variants={riseNoFade}
             className="text-muted-foreground mx-auto mb-7 max-w-lg text-[1.02rem] lg:mx-0"
           >
             I&apos;m{" "}
@@ -209,7 +216,7 @@ export function Hero() {
         transition={{ delay: 0.5 }}
         className="relative mt-10 pb-16 lg:mt-14"
       >
-        <p className="text-muted-foreground/80 mb-5 text-center font-mono text-xs tracking-widest">
+        <p className="text-muted-foreground/90 mb-5 text-center font-mono text-xs tracking-widest">
           TECHNOLOGIES I WORK WITH
         </p>
         <div className="marquee-mask mx-auto max-w-6xl">
@@ -223,7 +230,7 @@ export function Hero() {
                 {profile.techMarquee.map((tech) => (
                   <span
                     key={tech}
-                    className="font-heading text-muted-foreground/55 after:text-primary/60 flex items-center whitespace-nowrap after:mx-6 after:content-['·'] lg:after:mx-7"
+                    className="font-heading text-muted-foreground/80 after:text-primary/60 flex items-center whitespace-nowrap after:mx-6 after:content-['·'] lg:after:mx-7"
                   >
                     {tech}
                   </span>
@@ -234,7 +241,7 @@ export function Hero() {
         </div>
       </motion.div>
 
-      <div className="text-muted-foreground/70 absolute bottom-5 left-1/2 hidden -translate-x-1/2 flex-col items-center font-mono text-[0.68rem] tracking-[0.25em] sm:flex">
+      <div className="text-muted-foreground/90 absolute bottom-5 left-1/2 hidden -translate-x-1/2 flex-col items-center font-mono text-[0.68rem] tracking-[0.25em] sm:flex">
         SCROLL
         <span aria-hidden="true" className="bob">
           ▾

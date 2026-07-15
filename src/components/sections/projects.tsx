@@ -42,14 +42,15 @@ export function ProjectsSection() {
             activeTab={activeTab}
             onChange={setActiveTab}
             label="Project categories"
+            idPrefix="projects"
           />
         </Reveal>
 
         <motion.div
           key={activeTab}
           role="tabpanel"
-          id={`panel-${activeTab}`}
-          aria-labelledby={`tab-${activeTab}`}
+          id={`projects-panel-${activeTab}`}
+          aria-labelledby={`projects-tab-${activeTab}`}
           initial={reducedMotion ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: [0.22, 0.8, 0.35, 1] }}

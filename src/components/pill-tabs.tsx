@@ -14,6 +14,7 @@ type PillTabsProps<T extends string> = {
   activeTab: T;
   onChange: (tab: T) => void;
   label: string;
+  idPrefix: string;
 };
 
 export function PillTabs<T extends string>({
@@ -21,6 +22,7 @@ export function PillTabs<T extends string>({
   activeTab,
   onChange,
   label,
+  idPrefix,
 }: PillTabsProps<T>) {
   return (
     <div
@@ -33,9 +35,9 @@ export function PillTabs<T extends string>({
           key={tab.id}
           type="button"
           role="tab"
-          id={`tab-${tab.id}`}
+          id={`${idPrefix}-tab-${tab.id}`}
           aria-selected={activeTab === tab.id}
-          aria-controls={`panel-${tab.id}`}
+          aria-controls={`${idPrefix}-panel-${tab.id}`}
           onClick={() => onChange(tab.id)}
           className={cn(
             "flex grow basis-[40%] items-center justify-center gap-1.5 rounded-xl px-3 py-2.5 text-xs font-semibold transition-colors duration-200 sm:grow-0 sm:basis-auto sm:rounded-full sm:px-5 sm:py-2 sm:text-sm",

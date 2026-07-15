@@ -51,14 +51,15 @@ export function AchievementsCertificatesSection() {
             activeTab={activeTab}
             onChange={setActiveTab}
             label="Achievements and certifications"
+            idPrefix="highlights"
           />
         </Reveal>
 
         <motion.div
           key={activeTab}
           role="tabpanel"
-          id={`panel-${activeTab}`}
-          aria-labelledby={`tab-${activeTab}`}
+          id={`highlights-panel-${activeTab}`}
+          aria-labelledby={`highlights-tab-${activeTab}`}
           initial={reducedMotion ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: [0.22, 0.8, 0.35, 1] }}

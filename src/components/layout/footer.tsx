@@ -9,7 +9,7 @@ export function Footer() {
           <p className="text-muted-foreground text-sm">
             © {new Date().getFullYear()} Nayeem Islam. All rights reserved.
           </p>
-          <p className="text-muted-foreground/70 mt-1 font-mono text-xs">
+          <p className="text-muted-foreground/90 mt-1 font-mono text-xs">
             Built with Next.js & TypeScript
           </p>
         </div>

@@ -33,14 +33,15 @@ export function ExperienceEducationSection() {
             activeTab={activeTab}
             onChange={setActiveTab}
             label="Experience and education"
+            idPrefix="xp"
           />
         </Reveal>
 
         <motion.div
           key={activeTab}
           role="tabpanel"
-          id={`panel-${activeTab}`}
-          aria-labelledby={`tab-${activeTab}`}
+          id={`xp-panel-${activeTab}`}
+          aria-labelledby={`xp-tab-${activeTab}`}
           initial={reducedMotion ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: [0.22, 0.8, 0.35, 1] }}

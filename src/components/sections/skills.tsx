@@ -115,35 +115,37 @@ export function SkillsSection() {
             activeTab={activeTab}
             onChange={setActiveTab}
             label="Skill categories"
+            idPrefix="skills"
           />
         </Reveal>
 
-        <motion.ul
+        <motion.div
           key={activeTab}
           role="tabpanel"
-          id={`panel-${activeTab}`}
-          aria-labelledby={`tab-${activeTab}`}
+          id={`skills-panel-${activeTab}`}
+          aria-labelledby={`skills-tab-${activeTab}`}
           initial={reducedMotion ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: [0.22, 0.8, 0.35, 1] }}
-          className="mx-auto grid max-w-4xl grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-4"
         >
-          {skillsFor(activeTab).map((skill) => {
-            const Icon = skillIcons[skill] ?? Code2;
-            return (
-              <li
-                key={skill}
-                className="group border-border bg-surface hover:border-primary/40 flex items-center justify-center gap-2 rounded-xl border px-3 py-2.5 text-sm transition-colors"
-              >
-                <Icon
-                  className="text-muted-foreground group-hover:text-primary size-4 shrink-0 transition-colors"
-                  aria-hidden="true"
-                />
-                {skill}
-              </li>
-            );
-          })}
-        </motion.ul>
+          <ul className="mx-auto grid max-w-4xl grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-4">
+            {skillsFor(activeTab).map((skill) => {
+              const Icon = skillIcons[skill] ?? Code2;
+              return (
+                <li
+                  key={skill}
+                  className="group border-border bg-surface hover:border-primary/40 flex items-center justify-center gap-2 rounded-xl border px-3 py-2.5 text-sm transition-colors"
+                >
+                  <Icon
+                    className="text-muted-foreground group-hover:text-primary size-4 shrink-0 transition-colors"
+                    aria-hidden="true"
+                  />
+                  {skill}
+                </li>
+              );
+            })}
+          </ul>
+        </motion.div>
       </div>
     </section>
   );
