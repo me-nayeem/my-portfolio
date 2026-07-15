@@ -65,7 +65,6 @@ async function sendEmail(
 export async function sendContactMessage(
   formData: FormData,
 ): Promise<ActionResult> {
-  // Honeypot: bots fill the hidden field; report success without sending.
   if (formData.get("company")) {
     return { ok: true };
   }
