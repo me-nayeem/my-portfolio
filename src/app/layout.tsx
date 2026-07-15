@@ -1,15 +1,28 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {
+  Manrope,
+  Inter,
+  JetBrains_Mono,
+  Instrument_Serif,
+} from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const manrope = Manrope({
   subsets: ["latin"],
+  weight: ["700", "800"],
+  variable: "--font-heading",
 });
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({ subsets: ["latin"], variable: "--font-body" });
+const mono = JetBrains_Mono({
   subsets: ["latin"],
+  weight: "400",
+  variable: "--font-mono",
+});
+const serif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: "italic",
+  variable: "--font-serif",
 });
 
 export const metadata: Metadata = {
@@ -25,9 +38,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${manrope.variable} ${inter.variable} ${mono.variable} ${serif.variable}`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );
 }
