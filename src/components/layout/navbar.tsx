@@ -55,13 +55,13 @@ export function Navbar() {
               priority
             />
           </span>
-          <span className="font-heading hidden text-lg font-bold tracking-tight sm:block">
+          <span className="font-heading hidden text-lg font-bold tracking-tight whitespace-nowrap sm:block">
             Nayeem Islam
           </span>
           <span className="sr-only">Nayeem Islam — home</span>
         </Link>
 
-        <ul className="hidden items-center gap-9 md:flex">
+        <ul className="hidden items-center gap-9 lg:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
@@ -74,10 +74,10 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <Link
             href="/#contact"
-            className="text-primary-foreground rounded-full bg-(image:--gradient) px-5 py-2 text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(52,211,153,0.28)]"
+            className="text-primary-foreground rounded-full bg-(image:--gradient) px-5 py-2 text-sm font-semibold whitespace-nowrap transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(52,211,153,0.28)]"
           >
             Hire Me
           </Link>
@@ -93,7 +93,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="text-foreground md:hidden"
+          className="text-foreground lg:hidden"
           onClick={() => setMenuOpen((open) => !open)}
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
@@ -106,7 +106,7 @@ export function Navbar() {
       {menuOpen && (
         <div
           id="mobile-menu"
-          className="border-border bg-surface/95 border-t px-5 pt-2 pb-6 backdrop-blur-md md:hidden"
+          className="border-border bg-surface/95 border-t px-5 pt-2 pb-6 backdrop-blur-md lg:hidden"
         >
           <ul className="flex flex-col">
             {navLinks.map((link) => (
