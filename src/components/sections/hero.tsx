@@ -6,6 +6,7 @@ import { motion, useReducedMotion, type Variants } from "motion/react";
 import { Download } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "../icons";
 import { profile } from "../../content/profile";
+import { scrollToHash } from "../../lib/scroll";
 
 const rise: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -48,7 +49,7 @@ export function Hero() {
         animate="visible"
         className="relative mx-auto grid w-full max-w-6xl items-center gap-10 px-5 sm:px-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16"
       >
-        <div>
+        <div className="text-center lg:text-left">
           <motion.div
             variants={rise}
             className="border-primary/30 bg-surface-2/80 text-foreground/90 mb-5 inline-flex items-center gap-2.5 rounded-full border px-4 py-1.5 font-mono text-[0.8rem]"
@@ -74,7 +75,7 @@ export function Hero() {
 
           <motion.p
             variants={rise}
-            className="text-muted-foreground mb-7 max-w-lg text-[1.02rem]"
+            className="text-muted-foreground mx-auto mb-7 max-w-lg text-[1.02rem] lg:mx-0"
           >
             I&apos;m{" "}
             <strong className="text-foreground font-semibold">
@@ -93,10 +94,14 @@ export function Hero() {
             , a live e-commerce platform serving a 500+ product catalog.
           </motion.p>
 
-          <motion.div variants={rise} className="mb-7 flex flex-wrap gap-4">
+          <motion.div
+            variants={rise}
+            className="mb-7 flex flex-wrap justify-center gap-4 lg:justify-start"
+          >
             <Link
               href="/#projects"
               className="group text-primary-foreground inline-flex items-center gap-2 rounded-full bg-(image:--gradient) px-7 py-3 text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(52,211,153,0.28)]"
+              onClick={(event) => scrollToHash(event, "/#projects")}
             >
               View Projects
               <span
@@ -116,7 +121,10 @@ export function Hero() {
             </a>
           </motion.div>
 
-          <motion.div variants={rise} className="flex items-center gap-4">
+          <motion.div
+            variants={rise}
+            className="flex items-center justify-center gap-4 lg:justify-start"
+          >
             <span className="text-muted-foreground font-mono text-xs">
               Follow me:
             </span>
@@ -145,7 +153,7 @@ export function Hero() {
           variants={photoIn}
           initial={initial}
           animate="visible"
-          className="relative -order-1 flex items-center gap-4 justify-self-start lg:order-0 lg:block lg:justify-self-center"
+          className="relative -order-1 flex items-center justify-center gap-4 justify-self-center lg:order-0 lg:block"
         >
           <div className="border-primary/25 bg-surface-2 relative size-32 overflow-hidden rounded-full border-2 shadow-[0_0_35px_rgba(52,211,153,0.25)] sm:size-36 lg:aspect-4/5 lg:size-auto lg:w-[clamp(270px,26vw,350px)] lg:rounded-[22px] lg:border lg:shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
             <Image

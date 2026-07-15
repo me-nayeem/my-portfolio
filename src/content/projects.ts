@@ -4,6 +4,7 @@ export const projects: Project[] = [
   {
     title: "Astha Engineering & Solutions",
     slug: "astha-engineering",
+    categories: ["frontend", "backend"],
     summary:
       "Production e-commerce platform for an industrial automation parts supplier — designed, built, and deployed end-to-end as sole developer.",
     description:
@@ -32,6 +33,7 @@ export const projects: Project[] = [
   {
     title: "Halioo",
     slug: "halioo",
+    categories: ["frontend", "backend"],
     summary:
       "RAG document chatbot that answers questions grounded in the user's own PDF/TXT files, with source citations.",
     description:
@@ -62,6 +64,7 @@ export const projects: Project[] = [
   {
     title: "QueueStorm",
     slug: "queuestorm",
+    categories: ["backend"],
     summary:
       "AI support copilot for financial-service tickets — deterministic decisions, LLM-phrased responses, and a safety filter.",
     description:
@@ -82,6 +85,7 @@ export const projects: Project[] = [
   {
     title: "Office Energy Monitor",
     slug: "office-energy-monitor",
+    categories: ["frontend", "backend"],
     summary:
       "Real-time energy tracking for 15 devices across 3 rooms — a zero-polling SSE dashboard and a Discord bot on one backend.",
     description:

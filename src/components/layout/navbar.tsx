@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Download, Menu, X } from "lucide-react";
 import { profile } from "../../content/profile";
 import { cn } from "../../lib/utils";
+import { scrollToHash } from "../../lib/scroll";
 
 const navLinks = [
   { label: "Projects", href: "/#projects" },
@@ -67,6 +68,7 @@ export function Navbar() {
               <Link
                 href={link.href}
                 className="text-muted-foreground hover:text-foreground text-sm font-medium transition-colors"
+                onClick={(event) => scrollToHash(event, link.href)}
               >
                 {link.label}
               </Link>
@@ -78,6 +80,7 @@ export function Navbar() {
           <Link
             href="/#contact"
             className="text-primary-foreground rounded-full bg-(image:--gradient) px-5 py-2 text-sm font-semibold whitespace-nowrap transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(52,211,153,0.28)]"
+            onClick={(event) => scrollToHash(event, "/#contact")}
           >
             Hire Me
           </Link>
@@ -114,7 +117,10 @@ export function Navbar() {
                 <Link
                   href={link.href}
                   className="border-border/60 text-muted-foreground hover:text-foreground block border-b py-3 text-sm font-medium transition-colors"
-                  onClick={() => setMenuOpen(false)}
+                  onClick={(event) => {
+                    scrollToHash(event, link.href);
+                    setMenuOpen(false);
+                  }}
                 >
                   {link.label}
                 </Link>
@@ -125,7 +131,10 @@ export function Navbar() {
             <Link
               href="/#contact"
               className="text-primary-foreground flex-1 rounded-full bg-(image:--gradient) px-5 py-2.5 text-center text-sm font-semibold"
-              onClick={() => setMenuOpen(false)}
+              onClick={(event) => {
+                scrollToHash(event, "/#contact");
+                setMenuOpen(false);
+              }}
             >
               Hire Me
             </Link>

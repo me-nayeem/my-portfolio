@@ -1,6 +1,9 @@
+export type ProjectCategory = "frontend" | "backend";
+
 export type Project = {
   title: string;
   slug: string;
+  categories: ProjectCategory[];
   summary: string;
   description: string;
   problem: string;
@@ -39,13 +42,20 @@ export type Education = {
   location: string;
   startDate: string;
   endDate: string;
-  cgpa: string;
+  grade: string;
 };
 
 export type Achievement = {
   title: string;
   description: string;
-  link?: string;
+  links?: { label: string; url: string }[];
+};
+
+export type Certificate = {
+  title: string;
+  issuer: string;
+  date: string;
+  credentialUrl?: string;
 };
 
 export type Profile = {
