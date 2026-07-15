@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Download, Menu, X } from "lucide-react";
 import { profile } from "../../content/profile";
 import { cn } from "../../lib/utils";
@@ -16,8 +17,10 @@ const navLinks = [
 ];
 
 export function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -25,6 +28,31 @@ export function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (pathname !== "/") {
+      setActiveSection(null);
+      return;
+    }
+    const sections = navLinks
+      .map((link) => link.href.split("#")[1])
+      .filter((id): id is string => Boolean(id))
+      .map((id) => document.getElementById(id))
+      .filter((element): element is HTMLElement => element !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        }
+      },
+      { rootMargin: "-45% 0px -50% 0px" },
+    );
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, [pathname]);
 
   return (
     <header
@@ -67,7 +95,12 @@ export function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-muted-foreground hover:text-foreground text-sm font-medium transition-colors"
+                className={cn(
+                  "relative text-sm font-medium transition-colors",
+                  activeSection === link.href.split("#")[1]
+                    ? "text-foreground after:absolute after:inset-x-0 after:-bottom-1.5 after:h-0.5 after:rounded-full after:bg-(image:--gradient)"
+                    : "text-muted-foreground hover:text-foreground",
+                )}
                 onClick={(event) => scrollToHash(event, link.href)}
               >
                 {link.label}
@@ -116,7 +149,12 @@ export function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="border-border/60 text-muted-foreground hover:text-foreground block border-b py-3 text-sm font-medium transition-colors"
+                  className={cn(
+                    "border-border/60 block border-b py-3 text-sm font-medium transition-colors",
+                    activeSection === link.href.split("#")[1]
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-foreground",
+                  )}
                   onClick={(event) => {
                     scrollToHash(event, link.href);
                     setMenuOpen(false);
