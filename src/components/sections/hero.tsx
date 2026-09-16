@@ -84,11 +84,11 @@ export function Hero() {
             variants={riseNoFade}
             className="text-muted-foreground mx-auto mb-7 max-w-lg text-[1.02rem] lg:mx-0"
           >
-            I&apos;m{" "}
+            I am{" "}
             <strong className="text-foreground font-semibold">
               Nayeem Islam
             </strong>{" "}
-            — a full-stack developer who ships complete web products. Sole
+            a full-stack developer who ships complete web products. Sole
             developer of{" "}
             <a
               href="https://asthaengineering.com"
@@ -98,7 +98,9 @@ export function Hero() {
             >
               asthaengineering.com
             </a>
-            , a live e-commerce platform serving a 500+ product catalog.
+            , a live e-commerce platform serving a 500+ product catalog with
+            hands-on QA experience testing production systems at AZAI Labs. CSE
+            undergraduate at SUST (CGPA 3.56/4.00)
           </motion.p>
 
           <motion.div

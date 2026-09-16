@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { GithubIcon } from "../../../components/icons";
 import { FeedbackForm } from "../../../components/feedback-form";
+import { ScreenshotGallery } from "../../../components/screenshot-gallery";
 import { getProjectBySlug, projects } from "../../../content/projects";
 
 type Params = { slug: string };
@@ -67,6 +68,12 @@ export default async function ProjectPage({
 
   const gallery = project.images.filter(
     (image) => image !== project.coverImage,
+  );
+  const desktopScreenshots = gallery.filter(
+    (image) => !image.includes("_mobile_"),
+  );
+  const mobileScreenshots = gallery.filter((image) =>
+    image.includes("_mobile_"),
   );
 
   return (
@@ -139,7 +146,7 @@ export default async function ProjectPage({
               fill
               priority
               sizes="(max-width: 896px) 100vw, 896px"
-              className="object-cover"
+              className="object-contain"
             />
           </div>
         )
@@ -176,8 +183,10 @@ export default async function ProjectPage({
 
       {gallery.length > 0 && (
         <CaseSection title="Screenshots">
-          <div className="grid gap-4 sm:grid-cols-2">
-            {gallery.map((image) => (
+          <ScreenshotGallery images={gallery} projectTitle={project.title} />
+          <div className="hidden">
+            <div className="grid gap-4 sm:grid-cols-2">
+            {desktopScreenshots.map((image) => (
               <div
                 key={image}
                 className="border-border bg-surface-2 relative aspect-video overflow-hidden rounded-xl border"
@@ -191,6 +200,31 @@ export default async function ProjectPage({
                 />
               </div>
             ))}
+          </div>
+
+            {mobileScreenshots.length > 0 && (
+            <div className="mt-6">
+              <h3 className="text-foreground text-sm font-semibold">
+                Mobile screens
+              </h3>
+              <div className="mt-3 grid max-w-3xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {mobileScreenshots.map((image) => (
+                  <div
+                    key={image}
+                    className="border-border bg-surface-2 relative aspect-9/16 overflow-hidden rounded-xl border"
+                  >
+                    <Image
+                      src={image}
+                      alt={`${project.title} â€” mobile screenshot`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 45vw, 285px"
+                      className="object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+            )}
           </div>
         </CaseSection>
       )}

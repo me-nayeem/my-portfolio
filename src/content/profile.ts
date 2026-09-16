@@ -9,7 +9,7 @@ export const profile: Profile = {
   location: "Sylhet, Bangladesh",
   githubUrl: "https://github.com/me-nayeem",
   linkedinUrl: "https://www.linkedin.com/in/nayeem-ahmed100",
-  cvPath: "/cv/Nayeem_Islam_CV.pdf",
+  cvPath: "/cv/MD_Nayeem_Islam_CV_Sep_16_2026.pdf",
   techMarquee: [
     "Next.js",
     "React",

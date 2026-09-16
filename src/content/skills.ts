@@ -3,11 +3,11 @@ import type { SkillGroup } from "./types";
 export const skillGroups: SkillGroup[] = [
   {
     title: "Languages",
-    skills: ["JavaScript", "TypeScript", "C++", "C", "Java"],
+    skills: ["JavaScript", "TypeScript", "C++", "C", "Java", "Dart"],
   },
   {
     title: "Frontend",
-    skills: ["React.js", "Next.js", "Tailwind CSS", "HTML", "CSS"],
+    skills: ["React.js", "Next.js", "Tailwind CSS", "HTML", "CSS", "Flutter"],
   },
   {
     title: "Backend",

@@ -7,7 +7,7 @@ export const educationList: Education[] = [
     location: "Sylhet, Bangladesh",
     startDate: "Aug 2024",
     endDate: "Feb 2029",
-    grade: "CGPA 3.54 / 4.00",
+    grade: "CGPA 3.64 / 4.00",
   },
   {
     institution: "Ishwardi Government College (IGC)",
