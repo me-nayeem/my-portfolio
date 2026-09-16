@@ -113,12 +113,6 @@ export function Hero() {
               onClick={(event) => scrollToHash(event, "/#projects")}
             >
               View Projects
-              <span
-                aria-hidden="true"
-                className="transition-transform duration-200 group-hover:translate-x-0.5"
-              >
-                →
-              </span>
             </Link>
             <a
               href={profile.cvPath}
@@ -185,7 +179,7 @@ export function Hero() {
             </div>
             <p className="text-muted-foreground mt-2 font-mono text-[0.68rem]">
               <span className="font-heading text-primary text-sm font-extrabold">
-                4+
+                5+
               </span>{" "}
               live projects
             </p>
@@ -195,7 +189,7 @@ export function Hero() {
             className="border-border bg-surface/90 absolute top-4 -left-6 hidden flex-col rounded-xl border px-3.5 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.4)] backdrop-blur-sm lg:flex"
           >
             <span className="font-heading text-primary text-lg leading-none font-extrabold">
-              4+
+              5+
             </span>
             <span className="text-muted-foreground font-mono text-[0.68rem]">
               live projects

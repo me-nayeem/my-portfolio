@@ -21,7 +21,7 @@ export const experiences: Experience[] = [
       "Rockerz",
     ],
     highlights: [
-      "Performed manual QA across 4+ production and staging portals, testing critical user flows and reporting issues.",
+      "Performed manual QA across 6+ production and staging portals, testing critical user flows and reporting issues.",
       "Tested and identified issues including OTP and CAPTCHA bypasses, broken referral tracking, and currency/DDP calculation errors.",
       "Created clear, developer-friendly Jira reports and consolidated related bugs to help identify root causes.",
       "Worked across the FUR4 and Rockerz platforms, helping improve product quality through continuous testing and issue verification.",
