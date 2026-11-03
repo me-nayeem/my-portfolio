@@ -2,6 +2,32 @@ import type { Experience } from "./types";
 
 export const experiences: Experience[] = [
   {
+    role: "Lead Full Stack Developer",
+    company: "Porisshromi",
+    companyUrl: "https://porisshromi.com",
+    location: "Sylhet, Bangladesh",
+    engagement: "Team Project",
+    startDate: "Oct 2026",
+    endDate: "Present",
+    techStack: [
+      "Next.js",
+      "React.js",
+      "TypeScript",
+      "Three.js",
+      "PostgreSQL",
+      "Prisma",
+      "Supabase",
+      "Tailwind CSS",
+    ],
+    highlights: [
+      "Led development of a live gamified admission-prep platform where students answer 15,000+ real past MCQs across 6 themed 3D routes; live at porisshromi.com.",
+      "Designed a cheat-resistant exam engine with server-owned timing, one-sheet-at-a-time delivery, exactly-once scoring under concurrent requests, and no answer key sent before scoring.",
+      "Made exams resilient on weak mobile networks with auto-submit, answer recovery, resumable starts, and an automatic fallback from 3D to a plain quiz without losing answers or time.",
+      "Shipped a multi-day Medical Model Test with a live leaderboard, plus teacher classrooms, Pro subscriptions, and an admin console for bKash payment verification.",
+      "Secured every database table with row-level security, rate limiting, and input validation, backed by 199 automated tests and CI on every push.",
+    ],
+  },
+  {
     role: "Software QA Engineer Intern",
     company: "AZAI Labs",
     location: "Remote (Dhaka, Bangladesh)",

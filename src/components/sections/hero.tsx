@@ -87,8 +87,19 @@ export function Hero() {
             I am{" "}
             <strong className="text-foreground font-semibold">
               Nayeem Islam
-            </strong>{" "}
-            a full-stack developer who ships complete web products. Sole
+            </strong>
+            , a full-stack developer and CSE undergraduate at SUST with
+            production experience in React, Next.js, TypeScript, Node.js, and
+            PostgreSQL. Lead developer of{" "}
+            <a
+              href="https://porisshromi.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary border-primary/35 border-b"
+            >
+              porisshromi.com
+            </a>
+            , a live admission-prep platform with 15,000+ MCQs, and sole
             developer of{" "}
             <a
               href="https://asthaengineering.com"
@@ -98,9 +109,7 @@ export function Hero() {
             >
               asthaengineering.com
             </a>
-            , a live e-commerce platform serving a 500+ product catalog with
-            hands-on QA experience testing production systems at AZAI Labs. CSE
-            undergraduate at SUST (CGPA 3.56/4.00)
+            , a live e-commerce platform for an industrial client.
           </motion.p>
 
           <motion.div
